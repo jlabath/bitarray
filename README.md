@@ -2,6 +2,8 @@
 
 Is an implementation of variable size bit array. Array is zero index based.
 
+http://godoc.org/github.com/jlabath/bitarray
+
 Sample usage:
 
 ```
@@ -15,4 +17,4 @@ ary.IsUnset(2) //true
 ary.String() // 0000000000
 ```
 
-For more see example in folder eratosthenes
+For actual use see example in folder eratosthenes

@@ -5,13 +5,13 @@ import (
 	"fmt"
 )
 
-//BitArray contains unexported fields
+//A BitArray is variable sized array of bits
 type BitArray struct {
 	length int
 	data   []byte
 }
 
-//New returns new instance of BitArray
+//New returns new instance of BitArray of the desired length.
 func New(length int) *BitArray {
 	if length < 1 {
 		panic(fmt.Sprintf("pointless size of %d", length))
@@ -24,7 +24,7 @@ func New(length int) *BitArray {
 	return &BitArray{length, d}
 }
 
-//Fill sets all bits in the array to filler (1 or 0)
+//Fill sets all bits in the array to filler (1 or 0).
 func (r *BitArray) Fill(filler uint8) {
 	if filler != 0 {
 		filler = 1
@@ -34,7 +34,7 @@ func (r *BitArray) Fill(filler uint8) {
 	}
 }
 
-//Length returns the size of the array
+//Length returns the size of the array.
 func (r *BitArray) Length() int {
 	return r.length
 }
@@ -76,27 +76,27 @@ func (r *BitArray) get(idx int) uint8 {
 	return 0
 }
 
-//Set sets the bit at idx to 1
+//Set sets the bit at idx to 1.
 func (r *BitArray) Set(idx int) {
 	r.set(idx, 1)
 }
 
-//Unset sets the bit at idx to 0
+//Unset sets the bit at idx to 0.
 func (r *BitArray) Unset(idx int) {
 	r.set(idx, 0)
 }
 
-//IsSet returns true if bit at idx is set to 1
+//IsSet returns true if bit at idx is set to 1.
 func (r *BitArray) IsSet(idx int) bool {
 	return r.get(idx) == 1
 }
 
-//IsUnset returns true if bit at idx is set to 0
+//IsUnset returns true if bit at idx is set to 0.
 func (r *BitArray) IsUnset(idx int) bool {
 	return r.get(idx) == 0
 }
 
-//String returns text representation of the array
+//String returns text representation of the array.
 func (r *BitArray) String() string {
 	var buf bytes.Buffer
 	for _, v := range r.data {
